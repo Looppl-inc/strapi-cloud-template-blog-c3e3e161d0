@@ -32,6 +32,11 @@
         }
       },
       "targetField": ""
+    },
+    "stores": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::store.store"
     }
   }
 }
