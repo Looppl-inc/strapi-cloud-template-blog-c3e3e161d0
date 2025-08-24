@@ -31,7 +31,8 @@
           "localized": true
         }
       },
-      "targetField": ""
+      "targetField": "",
+      "required": true
     },
     "stores": {
       "type": "relation",

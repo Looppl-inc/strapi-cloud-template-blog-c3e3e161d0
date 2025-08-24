@@ -27,6 +27,11 @@
     "shortDescription": {
       "type": "text",
       "required": true
+    },
+    "showcase_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::showcase-item.showcase-item"
     }
   }
 }
