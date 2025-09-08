@@ -522,6 +522,7 @@ export interface ApiContestContest extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    activeStores: Schema.Attribute.Relation<'oneToMany', 'api::store.store'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -672,6 +673,10 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    active_contest: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::contest.contest'
+    >;
     coverImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &

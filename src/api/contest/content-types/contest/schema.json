@@ -72,6 +72,12 @@
           "localized": false
         }
       }
+    },
+    "activeStores": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::store.store",
+      "mappedBy": "active_contest"
     }
   }
 }
