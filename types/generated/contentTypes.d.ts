@@ -697,6 +697,15 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
         };
       }>;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    products: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     shortDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     showcase_items: Schema.Attribute.Relation<

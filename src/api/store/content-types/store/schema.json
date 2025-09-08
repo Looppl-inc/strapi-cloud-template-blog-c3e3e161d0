@@ -68,6 +68,21 @@
       "relation": "manyToOne",
       "target": "api::contest.contest",
       "inversedBy": "activeStores"
+    },
+    "products": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
