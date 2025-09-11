@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_title_and_descriptions",
+  "info": {
+    "displayName": "Title and description",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "rules_sections",
+  "info": {
+    "singularName": "rules-section",
+    "pluralName": "rules-sections",
+    "displayName": "Rules Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title_and_desc": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.title-and-description",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}

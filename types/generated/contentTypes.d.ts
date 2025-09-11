@@ -754,6 +754,47 @@ export interface ApiPrivacyPagePrivacyPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiRulesSectionRulesSection extends Struct.SingleTypeSchema {
+  collectionName: 'rules_sections';
+  info: {
+    displayName: 'Rules Section';
+    pluralName: 'rules-sections';
+    singularName: 'rules-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::rules-section.rules-section'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title_and_desc: Schema.Attribute.Component<
+      'shared.title-and-description',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiShowcaseItemShowcaseItem
   extends Struct.CollectionTypeSchema {
   collectionName: 'showcase_items';
@@ -1432,6 +1473,7 @@ declare module '@strapi/strapi' {
       'api::faq-section.faq-section': ApiFaqSectionFaqSection;
       'api::global.global': ApiGlobalGlobal;
       'api::privacy-page.privacy-page': ApiPrivacyPagePrivacyPage;
+      'api::rules-section.rules-section': ApiRulesSectionRulesSection;
       'api::showcase-item.showcase-item': ApiShowcaseItemShowcaseItem;
       'api::store.store': ApiStoreStore;
       'api::terms-page.terms-page': ApiTermsPageTermsPage;
