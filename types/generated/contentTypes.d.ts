@@ -632,6 +632,44 @@ export interface ApiContestContest extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFaqSectionFaqSection extends Struct.SingleTypeSchema {
+  collectionName: 'faq_sections';
+  info: {
+    displayName: 'FAQ Section';
+    pluralName: 'faq-sections';
+    singularName: 'faq-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-section.faq-section'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    questions: Schema.Attribute.Component<'shared.questions', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1391,6 +1429,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::contest-rules-page.contest-rules-page': ApiContestRulesPageContestRulesPage;
       'api::contest.contest': ApiContestContest;
+      'api::faq-section.faq-section': ApiFaqSectionFaqSection;
       'api::global.global': ApiGlobalGlobal;
       'api::privacy-page.privacy-page': ApiPrivacyPagePrivacyPage;
       'api::showcase-item.showcase-item': ApiShowcaseItemShowcaseItem;

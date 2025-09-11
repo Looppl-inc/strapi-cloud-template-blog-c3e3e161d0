@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_questions",
+  "info": {
+    "displayName": "Questions",
+    "icon": "question"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "anwser": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}
