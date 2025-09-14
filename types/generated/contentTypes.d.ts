@@ -610,6 +610,12 @@ export interface ApiContestContest extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
+    openStatus: Schema.Attribute.Enumeration<['upcoming', 'active', 'ended']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<''> &
       Schema.Attribute.Required &

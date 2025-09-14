@@ -78,6 +78,19 @@
       "relation": "oneToMany",
       "target": "api::store.store",
       "mappedBy": "active_contest"
+    },
+    "openStatus": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "enum": [
+        "upcoming",
+        "active",
+        "ended"
+      ]
     }
   }
 }
