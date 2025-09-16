@@ -930,6 +930,12 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
       'api::showcase-item.showcase-item'
     >;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    tags: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
