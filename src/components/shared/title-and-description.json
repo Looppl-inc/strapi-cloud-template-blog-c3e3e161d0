@@ -13,6 +13,9 @@
     "description": {
       "type": "text",
       "required": true
+    },
+    "shortRules": {
+      "type": "text"
     }
   },
   "config": {}
