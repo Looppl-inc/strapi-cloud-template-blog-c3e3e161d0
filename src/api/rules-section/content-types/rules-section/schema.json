@@ -26,8 +26,8 @@
       "repeatable": true,
       "required": true
     },
-    "shortRules": {
-      "type": "text",
+    "rulesFinePrint": {
+      "type": "blocks",
       "pluginOptions": {
         "i18n": {
           "localized": true
