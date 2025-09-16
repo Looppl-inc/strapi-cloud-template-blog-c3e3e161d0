@@ -25,6 +25,14 @@
       "component": "shared.title-and-description",
       "repeatable": true,
       "required": true
+    },
+    "shortRules": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

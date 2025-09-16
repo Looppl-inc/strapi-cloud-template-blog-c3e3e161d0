@@ -785,6 +785,12 @@ export interface ApiRulesSectionRulesSection extends Struct.SingleTypeSchema {
       'api::rules-section.rules-section'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    shortRules: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     title_and_desc: Schema.Attribute.Component<
       'shared.title-and-description',
       true
