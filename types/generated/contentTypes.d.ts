@@ -708,6 +708,69 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInstantPrizeInstantPrize
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'instant_prizes';
+  info: {
+    displayName: 'Instant Prize';
+    pluralName: 'instant-prizes';
+    singularName: 'instant-prize';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    approximateRetailValue: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    coverPhoto: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::instant-prize.instant-prize'
+    >;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    shortDescription: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    store: Schema.Attribute.Relation<'manyToOne', 'api::store.store'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPrivacyPagePrivacyPage extends Struct.SingleTypeSchema {
   collectionName: 'privacy_pages';
   info: {
@@ -890,6 +953,10 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    instant_prizes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::instant-prize.instant-prize'
+    >;
     instantPrize: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
@@ -1517,6 +1584,7 @@ declare module '@strapi/strapi' {
       'api::contest.contest': ApiContestContest;
       'api::faq-section.faq-section': ApiFaqSectionFaqSection;
       'api::global.global': ApiGlobalGlobal;
+      'api::instant-prize.instant-prize': ApiInstantPrizeInstantPrize;
       'api::privacy-page.privacy-page': ApiPrivacyPagePrivacyPage;
       'api::rules-section.rules-section': ApiRulesSectionRulesSection;
       'api::showcase-item.showcase-item': ApiShowcaseItemShowcaseItem;
