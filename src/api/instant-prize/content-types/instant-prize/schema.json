@@ -63,6 +63,14 @@
       "relation": "manyToOne",
       "target": "api::store.store",
       "inversedBy": "instant_prizes"
+    },
+    "claimInstruction": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
