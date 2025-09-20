@@ -732,6 +732,12 @@ export interface ApiInstantPrizeInstantPrize
           localized: false;
         };
       }>;
+    claimInstruction: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     coverPhoto: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &
