@@ -593,6 +593,10 @@ export interface ApiContestContest extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    instant_prizes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::instant-prize.instant-prize'
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -738,6 +742,7 @@ export interface ApiInstantPrizeInstantPrize
           localized: true;
         };
       }>;
+    contest: Schema.Attribute.Relation<'manyToOne', 'api::contest.contest'>;
     coverPhoto: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &

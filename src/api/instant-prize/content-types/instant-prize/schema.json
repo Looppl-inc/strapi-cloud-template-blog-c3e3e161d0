@@ -71,6 +71,12 @@
           "localized": true
         }
       }
+    },
+    "contest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contest.contest",
+      "inversedBy": "instant_prizes"
     }
   }
 }

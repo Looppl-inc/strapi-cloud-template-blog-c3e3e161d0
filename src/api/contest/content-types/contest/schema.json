@@ -91,6 +91,12 @@
         "active",
         "ended"
       ]
+    },
+    "instant_prizes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::instant-prize.instant-prize",
+      "mappedBy": "contest"
     }
   }
 }
