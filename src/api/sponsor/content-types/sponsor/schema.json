@@ -59,6 +59,12 @@
       "component": "shared.link-button",
       "repeatable": true,
       "required": true
+    },
+    "contest": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contest.contest",
+      "inversedBy": "sponsors"
     }
   }
 }

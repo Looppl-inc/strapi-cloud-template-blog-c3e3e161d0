@@ -97,6 +97,12 @@
       "relation": "oneToMany",
       "target": "api::instant-prize.instant-prize",
       "mappedBy": "contest"
+    },
+    "sponsors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sponsor.sponsor",
+      "mappedBy": "contest"
     }
   }
 }

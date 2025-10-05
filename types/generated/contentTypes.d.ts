@@ -628,6 +628,7 @@ export interface ApiContestContest extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    sponsors: Schema.Attribute.Relation<'oneToMany', 'api::sponsor.sponsor'>;
     stores: Schema.Attribute.Relation<'oneToMany', 'api::store.store'>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -960,6 +961,7 @@ export interface ApiSponsorSponsor extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    contest: Schema.Attribute.Relation<'manyToOne', 'api::contest.contest'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
