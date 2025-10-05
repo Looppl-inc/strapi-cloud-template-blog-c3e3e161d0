@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedLinkButton extends Struct.ComponentSchema {
+  collectionName: 'components_shared_link_buttons';
+  info: {
+    displayName: 'LinkButton';
+    icon: 'earth';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -89,6 +101,7 @@ export interface SharedTitleAndDescription extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.link-button': SharedLinkButton;
       'shared.media': SharedMedia;
       'shared.questions': SharedQuestions;
       'shared.quote': SharedQuote;

@@ -927,6 +927,68 @@ export interface ApiShowcaseItemShowcaseItem
   };
 }
 
+export interface ApiSponsorSponsor extends Struct.CollectionTypeSchema {
+  collectionName: 'sponsors';
+  info: {
+    displayName: 'Sponsor';
+    pluralName: 'sponsors';
+    singularName: 'sponsor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bannerMedia: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    catButtons: Schema.Attribute.Component<'shared.link-button', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sponsor.sponsor'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiStoreStore extends Struct.CollectionTypeSchema {
   collectionName: 'stores';
   info: {
@@ -1599,6 +1661,7 @@ declare module '@strapi/strapi' {
       'api::privacy-page.privacy-page': ApiPrivacyPagePrivacyPage;
       'api::rules-section.rules-section': ApiRulesSectionRulesSection;
       'api::showcase-item.showcase-item': ApiShowcaseItemShowcaseItem;
+      'api::sponsor.sponsor': ApiSponsorSponsor;
       'api::store.store': ApiStoreStore;
       'api::terms-page.terms-page': ApiTermsPageTermsPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
