@@ -1011,6 +1011,12 @@ export interface ApiStoreStore extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::contest.contest'
     >;
+    city: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     coverImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &

@@ -136,6 +136,14 @@
       "relation": "oneToMany",
       "target": "api::instant-prize.instant-prize",
       "mappedBy": "store"
+    },
+    "city": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
